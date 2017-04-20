@@ -1,14 +1,16 @@
 #! /usr/bin/python
-# Written by Dan Mandle http://dan.mandle.me September 2012
-# License: GPL 2.0
+# Written by Chistian Elawad, April 2017
  
 import os
 from gps import *
 from time import *
 import time
 import threading
-
 import MySQLdb
+from papirus import PapirusTextPos
+
+##########################################################################################
+
  
 gpsd = None #seting the global variable
  
@@ -34,6 +36,11 @@ if __name__ == '__main__':
     while True:
       #It may take a second or two to get good data
       #print gpsd.fix.latitude,', ',gpsd.fix.longitude,'  Time: ',gpsd.utc
+      
+      
+      
+      ##########################################################################################
+      # DATABASE
 
       print
       print 
@@ -67,7 +74,34 @@ if __name__ == '__main__':
 
       # disconnect from server
       db.close()
+
+      ##########################################################################################
+      # eINC DISPLAY
+
+
+      # Calling PapirusTextPos this way will mean nothing is written to the screen be default
+      text = PapirusTextPos(False)
       
+      # Clear all text from the screen
+      # This does a full update so is a little slower than just removing the text.
+      text.clear()
+
+      # Write text to the screen at selected point, with an Id
+      # Nothing will show on the screen
+      text.AddText("Order id: ", 10, 10, Id="OrderId" )
+      text.AddText("Owner: ", 10, 30, Id="Owner" )
+      text.AddText("Type: ", 10, 50, Id="Type")
+      text.AddText("Ammount: ", 10, 70, Id="Ammount")
+
+      # Now display lines on the scrren
+      text.WriteAll()
+
+
+
+      ##########################################################################################
+      # Command line
+      # (will be removed or commented out later)
+
  
       os.system('clear')
  
@@ -88,8 +122,10 @@ if __name__ == '__main__':
       print 'mode        ' , gpsd.fix.mode
       print
       # print 'sats        ' , gpsd.satellites
+      
+      ##########################################################################################
  
-      time.sleep(5) #set to whatever
+      time.sleep(20) #set to whatever
  
   except (KeyboardInterrupt, SystemExit): #when you press ctrl+c
     print "\nKilling Thread..."
