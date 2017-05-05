@@ -14,6 +14,7 @@
 		AA8C60CE1EBC51C8009013D6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA8C60CC1EBC51C8009013D6 /* LaunchScreen.storyboard */; };
 		AA8C60D91EBC51C8009013D6 /* V_TAGTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8C60D81EBC51C8009013D6 /* V_TAGTests.swift */; };
 		AA8C60E41EBC51C8009013D6 /* V_TAGUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8C60E31EBC51C8009013D6 /* V_TAGUITests.swift */; };
+		AA8C60F31EBC5244009013D6 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA8C60F21EBC5244009013D6 /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		AA8C60DF1EBC51C8009013D6 /* V-TAGUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "V-TAGUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA8C60E31EBC51C8009013D6 /* V_TAGUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = V_TAGUITests.swift; sourceTree = "<group>"; };
 		AA8C60E51EBC51C8009013D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AA8C60F21EBC5244009013D6 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA8C60F31EBC5244009013D6 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +84,7 @@
 				AA8C60D71EBC51C8009013D6 /* V-TAGTests */,
 				AA8C60E21EBC51C8009013D6 /* V-TAGUITests */,
 				AA8C60C11EBC51C7009013D6 /* Products */,
+				AA8C60F11EBC5244009013D6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -123,6 +127,14 @@
 				AA8C60E51EBC51C8009013D6 /* Info.plist */,
 			);
 			path = "V-TAGUITests";
+			sourceTree = "<group>";
+		};
+		AA8C60F11EBC5244009013D6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AA8C60F21EBC5244009013D6 /* MapKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -194,6 +206,11 @@
 					AA8C60BF1EBC51C7009013D6 = {
 						CreatedOnToolsVersion = 8.3.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					AA8C60D31EBC51C8009013D6 = {
 						CreatedOnToolsVersion = 8.3.2;
